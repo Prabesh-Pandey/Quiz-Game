@@ -1,0 +1,143 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  --bg-gradient: linear-gradient(135deg, #eef2ff, #f8fafc);
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --border: rgba(99, 102, 241, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+#root {
+  width: min(640px, 100%);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.container h1 {
+  margin: 0;
+  font-size: clamp(32px, 5vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.quiz-box {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  padding: clamp(24px, 5vw, 36px);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.quiz-box h2 {
+  font-size: clamp(20px, 3.5vw, 26px);
+  margin: 0;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.options {
+  display: grid;
+  gap: 14px;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  background: rgba(99, 102, 241, 0.04);
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: border 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.option-item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(99, 102, 241, 0.35);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.option-item input {
+  accent-color: var(--accent);
+}
+
+button {
+  align-self: center;
+  padding: 12px 32px;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background: rgba(99, 102, 241, 0.35);
+  cursor: not-allowed;
+}
+
+.correct,
+.wrong {
+  margin: 0;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-weight: 600;
+}
+
+.correct {
+  background: rgba(34, 197, 94, 0.12);
+  color: #15803d;
+}
+
+.wrong {
+  background: rgba(248, 113, 113, 0.14);
+  color: #b91c1c;
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 16px;
+  }
+
+  .quiz-box {
+    border-radius: 18px;
+  }
+}
